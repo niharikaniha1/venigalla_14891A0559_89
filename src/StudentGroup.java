@@ -97,6 +97,14 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void remove(int index) {
+	    if(index<0||index>=this.students.length) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			ArrayList <Student> stud = new ArrayList<Student>(Arrays.asList(this.students));
+			stud.remove(index);
+			this.students = stud.toArray(this.students);
+		}
 		// Add your implementation here
 	}
 
@@ -137,6 +145,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+
 	}
 
 	@Override
