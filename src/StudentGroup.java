@@ -153,6 +153,34 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void removeFromElement(Student student) {
+	    int flag=-1;
+		if(student==null) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			for(int i=0;i<this.students.length;i++){
+				if(this.students[i]==student){
+					flag=i;
+
+
+				}
+
+			}
+
+
+		}
+
+			if(flag>0){
+				for (int i1=flag+1;i1<this.students.length;i1++){
+					ArrayList<Student> stud = new ArrayList<Student>(Arrays.asList(this.students));
+					stud.remove(i1);
+					this.students = stud.toArray(this.students);
+				}
+
+		}
+		else{
+			throw new IllegalArgumentException("Student not exist");
+		}
 		// Add your implementation here
 	}
 
@@ -170,6 +198,35 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		int flag=-1;
+		if(student==null) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			for(int i=0;i<this.students.length;i++){
+				if(this.students[i]==student){
+					flag=i;
+
+
+
+				}
+
+			}
+
+
+		}
+
+			if(flag>0){
+				for (int i1=0;i1<flag;i1++){
+					ArrayList<Student> list1 = new ArrayList<Student>(Arrays.asList(this.students));
+					list1.remove(i1);
+					this.students = list1.toArray(this.students);
+				}
+			}
+
+		else{
+			throw new IllegalArgumentException("Student not exist");
+		}
 
 	}
 
