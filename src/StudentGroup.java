@@ -221,9 +221,10 @@ public class StudentGroup implements StudentArrayOperation {
 		//Correct
 		// Add your implementation here
 		if (student == null) throw new IllegalArgumentException();
-		else
+		else{
 		for(int i=0;i<students.length;i++) {
 			if(student.getId() == students[i].getId()) return students[i+1];
+		}
 		}
 		return null;
 	}
