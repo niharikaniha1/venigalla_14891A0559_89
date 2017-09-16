@@ -111,6 +111,23 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		if(student==null) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			for(int i=0;i<this.students.length;i++){
+				if(students[i]==student){
+					ArrayList<Student> stud = new ArrayList<Student>(Arrays.asList(this.students));
+					stud.remove(student);
+					this.students = stud.toArray(this.students);
+					break;
+				}
+				else {
+					throw new IllegalArgumentException("Student not exist");
+				}
+			}
+
+		}
 	}
 
 	@Override
@@ -151,18 +168,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
-		Student te;
-		for(int i=0;i<students.length-1;i++){
-			for(int j=0;j<students.length-i-1;j++){
-				if(students[j].getId()>students[j+1].getId()){
-					te=students[j];
-					students[j]=students[j+1];
-					students[j+1]=te;
-
-
-				}
-			}
-		}
+		Arrays.sort(students);
 	}
 
 	@Override
